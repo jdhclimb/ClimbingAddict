@@ -1,0 +1,116 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>클친자 테스트</title>
+  <meta name="description" content="" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/hold.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/hold.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="클친자 테스트" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="https://YOUR_ID.github.io/YOUR_REPO/" />
+  <meta property="og:image" content="./assets/title.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="badge">🧗‍♂️ @jdh._.climb</div>
+      <h1>클친자 레벨 테스트</h1>
+      <p class="sub"></p>
+    </header>
+    <section id="screenStart" class="screen">
+      <div class="card">
+        <ul class="bullets">
+          <li>총 <b id="qTotal">24</b>문항</li>
+          <li>각 문항에서 가장 가까운 선택지 1개 선택</li>
+        </ul>
+        <div class="hero-center">
+          <div class="hero-image half">
+            <img src="./assets/simba.jpg" alt="클친자 테스트 메인 이미지" />
+          </div>
+          <p class="hero-desc">위 사진은 그냥 고양이 사진입니다. 귀엽지요?</p>
+          <button id="btnStart" class="btn primary" type="button">
+            테스트 시작 🧗
+          </button>
+        </div>
+        <p class="hint">* 얅옭</p>
+      </div>
+    </section>
+    <section id="screenQuiz" class="screen hidden">
+      <div class="topbar">
+        <div class="progress-wrap">
+          <div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+          <div class="progress-text" aria-live="polite">
+            <span id="qIndex">1</span>/<span id="qTotal2">0</span>
+          </div>
+        </div>
+        <button id="btnResetTop" class="btn ghost" type="button" title="처음부터">다시 하기</button>
+      </div>
+      <div class="card">
+        <h2 id="qTitle" class="q-title">Q1. ...</h2>
+        <div id="options" class="options"></div>
+        <div class="nav">
+          <button id="btnPrev" class="btn" type="button" disabled>← 이전</button>
+          <button id="btnNext" class="btn primary" type="button" disabled>다음 →</button>
+        </div>
+      </div>
+      <p class="hint">※ 애매하면 “그나마 가까운 거” 고르면 됨</p>
+    </section>
+    <section id="screenResult" class="screen hidden">
+      <div class="card result-card">
+        <div class="result-top">
+          <div class="result-img">
+            <img id="resultImg" src="./assets/result.png" alt="결과 이미지" />
+          </div>
+          <div class="result-summary">
+            <div class="score-row">
+              <span class="score-label">클친자 종합</span>
+              <span id="resultPercent" class="score-value">82%</span>
+            </div>
+            <div class="score-bar">
+              <div id="scoreBarFill" class="score-bar-fill"></div>
+            </div>
+            <h2 id="resultType" class="result-type">혹시… 선출..?</h2>
+          </div>
+        </div>
+        <div class="result-chart">
+          <canvas id="radarChart" width="260" height="260"></canvas>
+        </div>
+        <div class="result-tags" id="resultTags"></div>
+        <div class="result-desc">
+          <p id="resultDescMain">당신의 삶은 이미 클라이밍을 중심으로 돌아가고 있습니다.</p>
+          <p id="resultDescSub">쉬어도 결국 돌아오는 타입이네요.</p>
+        </div>
+        <div class="nav">
+          <button id="btnRestart" class="btn" type="button">다시 하기</button>
+          <button id="btnShareLink" class="btn" type="button">결과 공유</button>
+          <button id="btnSaveCard" class="btn primary" type="button">카드 저장</button>
+        </div>
+        <footer class="footer">
+          <small>※ 재미로만!</small>
+        </footer>
+      </div>
+    </section>
+    <div id="exportMount"></div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
