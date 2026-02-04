@@ -10,7 +10,7 @@
   --radius:16px;
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --shadow2:0 6px 18px rgba(0,0,0,.06);
-  --max:920px;
+  --max:600;
 }
 
 *{ box-sizing:border-box; }
@@ -396,7 +396,7 @@ img{ max-width:100%; display:block; }
 .result-nav{
   margin-top: 16px;
 }
-@media (max-width: 720px){
+@media (max-width: 600px){
   .result-row.top{
     grid-template-columns: 140px 1fr;
     gap: 14px;
@@ -537,7 +537,7 @@ img{ max-width:100%; display:block; }
 
 #cardCanvas.hidden{ display:none !important; }
 
-@media (max-width:720px){
+@media (max-width:600px){
   .result-layout{ grid-template-columns:1fr; }
   .result-left{
     grid-template-columns:140px 1fr;
@@ -548,4 +548,216 @@ img{ max-width:100%; display:block; }
 
 @media (prefers-reduced-motion: reduce){
   *{ transition:none !important; scroll-behavior:auto !important; }
+}
+/* =========================
+   RESULT HARD OVERRIDE
+   ========================= */
+
+:root{
+  --max: 600px; 
+}
+
+.app{
+  padding: 22px 12px 44px;
+}
+
+.result-chart{
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.result-top{
+  margin-bottom: 10px !important;
+}
+
+.result-card{
+  padding: 18px !important;
+}
+
+.result-card *{
+  outline: none;
+}
+
+.result-type{
+  margin-bottom: 2px !important;
+}
+.result-hash{
+  margin: 2px 0 0 !important;
+}
+
+.result-layout{
+  display: grid;
+  grid-template-columns: 240px 1fr; 
+  gap: 16px;
+  align-items: start;
+}
+
+.result-left{
+  display: grid;
+  gap: 10px;
+}
+
+.result-left .result-img{
+  width: 100% !important;
+  max-width: 210px;     
+  margin: 0 auto;       
+  aspect-ratio: 1 / 1;
+}
+
+#radarChart{
+  width: 260px !important;
+  height: 260px !important;
+  max-width: 100%;
+}
+
+.result-tags-col{
+  display: grid;
+  gap: 8px;
+  align-content: center; 
+}
+
+.result-tags-col .tag{
+  width: fit-content !important;  
+  max-width: 100%;
+  justify-content: center;
+  padding: 9px 12px !important;
+  border-radius: 12px !important;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.result-right{
+  gap: 10px !important;
+}
+
+.result-desc{
+  margin: 6px 0 0 !important;
+}
+
+@media (max-width: 600px){
+  .result-card{
+    padding: 14px !important;
+  }
+
+  .result-layout{
+    grid-template-columns: 1fr 160px; 
+    gap: 12px;
+  }
+
+  .result-left .result-img{
+    max-width: 160px;
+  }
+
+  #radarChart{
+    width: 240px !important;
+    height: 240px !important;
+  }
+  .result-tags-col .tag{
+    padding: 8px 10px !important;
+    font-size: 12.5px;
+  }
+  .result-top{
+    grid-template-columns: 120px 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 420px){
+  .result-layout{
+    grid-template-columns: 1fr 140px;
+    gap: 10px;
+  }
+
+  #radarChart{
+    width: 230px !important;
+    height: 230px !important;
+  }
+
+  .result-tags-col .tag{
+    padding: 8px 9px !important;
+    font-size: 12px;
+  }
+
+  .btn{
+    padding: 10px 12px;
+  }
+}
+
+/* ===== RESULT: 레이더 + 남는폭만 태그 ===== */
+.result-layout{
+  display: grid;
+  grid-template-columns: auto 1fr !important; /* 핵심 */
+  gap: 16px !important;
+  align-items: start;
+}
+
+/* 왼쪽(이미지+레이더)은 딱 컨텐츠만큼만 */
+.result-left{
+  width: fit-content;
+}
+
+/* 레이더는 살짝 키우고, 왼쪽 폭을 사실상 이걸로 결정 */
+#radarChart{
+  width: 280px !important;
+  height: 280px !important;
+}
+
+/* (선택) 결과 이미지 조금 더 작게 유지 */
+.result-left .result-img{
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* 오른쪽은 남는 공간 */
+.result-right{
+  min-width: 0; /* 긴 텍스트/태그 때문에 그리드 깨지는거 방지 */
+}
+
+/* 태그는 "남는 공간" 폭을 동일하게 꽉 채움 */
+.result-tags-col{
+  justify-items: stretch;
+  align-content: center;
+}
+
+.result-tags-col .tag{
+  width: 100% !important;       /* 남는 폭만큼 */
+  max-width: 100% !important;
+  box-sizing: border-box;
+  padding: 10px 12px !important;
+  white-space: nowrap;
+}
+
+/* 모바일에서도 무조건 레이더+태그 한 줄 유지 + 태그폭은 레이더 남는 부분만 */
+@media (max-width: 600px){
+  .result-layout{
+    grid-template-columns: auto 1fr !important; /* 계속 유지 */
+    gap: 12px !important;
+  }
+
+  #radarChart{
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .result-tags-col .tag{
+    padding: 9px 10px !important;
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 420px){
+  #radarChart{
+    width: 235px !important;
+    height: 235px !important;
+  }
+}
+
+
+#screenResult .result-desc{
+  margin-bottom: 24px;
+}
+
+#screenResult .nav{
+  margin-top: 24px;
 }
