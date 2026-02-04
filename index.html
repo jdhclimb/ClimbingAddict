@@ -37,13 +37,13 @@
       <div class="card">
         <ul class="bullets">
           <li>총 <b id="qTotal">24</b>문항</li>
-          <li>각 문항에서 가장 가까운 선택지 1개 선택</li>
+          <li>"모두" 고르는 문제 외 여러 개 해당되면 더 아래 문항으로 선택</li>
         </ul>
         <div class="hero-center">
           <div class="hero-image half">
             <img src="./assets/simba.jpg" alt="클친자 테스트 메인 이미지" />
           </div>
-          <p class="hero-desc">우리집 고양이</p>
+          <p class="hero-desc">우리집 고양이 귀여움</p>
           <button id="btnStart" class="btn primary" type="button">
             테스트 시작 🧗
           </button>
@@ -70,7 +70,7 @@
           <button id="btnNext" class="btn primary" type="button" disabled>다음 →</button>
         </div>
       </div>
-      <p class="hint">※ 애매하면 “그나마 가까운 거” 고르면 됨</p>
+      <p class="hint">※'모두' 제외 여러 개 해당되면 아래 걸로 선택</p>
     </section>
 <section id="screenResult" class="screen hidden">
   <div class="card result-card">
@@ -81,7 +81,7 @@
 
       <div class="result-summary">
         <div class="score-row">
-          <span class="score-label">클친자 종합</span>
+          <span class="score-label">클친력</span>
           <span id="resultPercent" class="score-value">67%</span>
         </div>
         <div class="score-bar">
