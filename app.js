@@ -7,34 +7,34 @@ const btnStart=$("btnStart"),btnPrev=$("btnPrev"),btnNext=$("btnNext"),btnResetT
 const progressBar=$("progressBar"),qIndexEl=$("qIndex"),qTotalEl=$("qTotal"),qTotal2El=$("qTotal2");
 const resultPercentEl=$("resultPercent"),scoreBarFillEl=$("scoreBarFill"),resultTypeEl=$("resultType"),resultTagsEl=$("resultTags"),resultHashEl=$("resultHash"),resultDescMainEl=$("resultDescMain"),resultDescSubEl=$("resultDescSub");
 const QUESTIONS=[
-// {id:"A01",type:"single",axis:"action",text:"저번 달 암장 방문 횟수는?",options:[{text:"0~4회",value:0},{text:"5~9회",value:1},{text:"10~14회",value:2},{text:"15회 이상",value:3}]},
-// {id:"A02",type:"single",axis:"action",text:"암장 최대 체류시간",options:[{text:"~2시간",value:0},{text:"2시간~5시간",value:1},{text:"5시간~8시간",value:2},{text:"8시간 이상",value:3}]},
-// {id:"A03",type:"single",axis:"action",text:"몸이 피곤하고 움직이기도 귀찮을 때",options:[{text:"안 간다",value:0},{text:"고민하다 안 간다",value:1},{text:"조금 늦게라도 간다",value:2},{text:"클밍이면 가야지",value:3}]},
-// {id:"A04",type:"single",axis:"action",text:"주 최대 방문 횟수",options:[{text:"2일 이하",value:0},{text:"3일~5일",value:1},{text:"5일~6일",value:2},{text:"7일",value:3}]},
+{id:"A01",type:"single",axis:"action",text:"저번 달 암장 방문 횟수는?",options:[{text:"0~4회",value:0},{text:"5~9회",value:1},{text:"10~14회",value:2},{text:"15회 이상",value:3}]},
+{id:"A02",type:"single",axis:"action",text:"암장 최대 체류시간",options:[{text:"~2시간",value:0},{text:"2시간~5시간",value:1},{text:"5시간~8시간",value:2},{text:"8시간 이상",value:3}]},
+{id:"A03",type:"single",axis:"action",text:"몸이 피곤하고 움직이기도 귀찮을 때",options:[{text:"안 간다",value:0},{text:"고민하다 안 간다",value:1},{text:"조금 늦게라도 간다",value:2},{text:"클밍이면 가야지",value:3}]},
+{id:"A04",type:"single",axis:"action",text:"주 최대 방문 횟수",options:[{text:"2일 이하",value:0},{text:"3일~5일",value:1},{text:"5일~6일",value:2},{text:"7일",value:3}]},
 
-// {id:"M01",type:"multi",axis:"mental",text:"다음 중 해본 것 모두 체크",options:[{text:"벽 더듬거려봄",value:1},{text:"문틀 타고 올라가봄",value:1},{text:'미끄러운 길 걷다 "오...밸런스" 생각해 봄',value:1},{text:"해당 없음",value:0,exclusive:true}]},
-// {id:"M02",type:"single",axis:"mental",text:"암장 못 가면",options:[{text:"별 생각 없음",value:0},{text:"좀 아쉽다",value:1},{text:"하루가 비는 느낌",value:2}]},
-// {id:"M03",type:"single",axis:"mental",text:"등반하는 꿈 꿔본 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
-// {id:"M04",type:"single",axis:"mental",text:"가만히 있을 때 떠오르는 생각",options:[{text:"딴 생각",value:0},{text:"클라이밍 언제 가지",value:1},{text:"존버했던 문제/뿌무 생각",value:2},{text:"돌.만지고.싶다.",value:3}]},
-// {id:"M05",type:"single",axis:"mental",text:"클라이머가 아닌 친구/동료",options:[{text:"클라이밍 이야기 안 한다",value:0},{text:"취미 이야기 나오면 잠깐",value:1},{text:"뿌무 자랑",value:2},{text:"너무 많이 해서 밴 당함",value:3}]},
+{id:"M01",type:"multi",axis:"mental",text:"다음 중 해본 것 모두 체크",options:[{text:"벽 더듬거려봄",value:1},{text:"문틀 타고 올라가봄",value:1},{text:'미끄러운 길 걷다 "오...밸런스" 생각해 봄',value:1},{text:"해당 없음",value:0,exclusive:true}]},
+{id:"M02",type:"single",axis:"mental",text:"암장 못 가면",options:[{text:"별 생각 없음",value:0},{text:"좀 아쉽다",value:1},{text:"하루가 비는 느낌",value:2}]},
+{id:"M03",type:"single",axis:"mental",text:"등반하는 꿈 꿔본 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
+{id:"M04",type:"single",axis:"mental",text:"가만히 있을 때 떠오르는 생각",options:[{text:"딴 생각",value:0},{text:"클라이밍 언제 가지",value:1},{text:"존버했던 문제/뿌무 생각",value:2},{text:"돌.만지고.싶다.",value:3}]},
+{id:"M05",type:"single",axis:"mental",text:"클라이머가 아닌 친구/동료",options:[{text:"클라이밍 이야기 안 한다",value:0},{text:"취미 이야기 나오면 잠깐",value:1},{text:"뿌무 자랑",value:2},{text:"너무 많이 해서 밴 당함",value:3}]},
 
-// {id:"L01",type:"single",axis:"life",text:"클밍 안하는 친구/가족이랑 여행가서",options:[{text:"재밌게 논다",value:0},{text:"주변 암장 찾아만 본다",value:1},{text:"암장 몇 번 감",value:2},{text:"여행 가기 전 암장 간다 말해둠",value:3}]},
-// {id:"L02",type:"single",axis:"life",text:"일정 잡을 때",options:[{text:"약속 먼저, 암장은 일정 비면",value:0},{text:"상황 봐서 결정",value:1},{text:"암장 중심으로 약속 조정",value:2},{text:"암장 먼저, 약속은 클밍 쉬어야 할 때",value:3}]},
-// {id:"L03",type:"single",axis:"life",text:"연차/자휴 때리고 클밍 간 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
-// {id:"L04",type:"single",axis:"life",text:"쉬려고 맘 먹었다가 못 참고 암장 간 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
-// {id:"L05",type:"single",axis:"life",text:"클밍 잘하려고 트레이닝/다른 운동/식단 해본 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
-// {id:"L06",type:"single",axis:"life",text:"연휴가 다가오면",options:[{text:"여행/휴식 위주",value:0},{text:"하루쯤 암장 갈까 싶음",value:1},{text:"클밍 언제 어디 갈지 계획함",value:2},{text:"연휴 == 암장 몰아가기 타임",value:3}]},
+{id:"L01",type:"single",axis:"life",text:"클밍 안하는 친구/가족이랑 여행가서",options:[{text:"재밌게 논다",value:0},{text:"주변 암장 찾아만 본다",value:1},{text:"암장 몇 번 감",value:2},{text:"여행 가기 전 암장 간다 말해둠",value:3}]},
+{id:"L02",type:"single",axis:"life",text:"일정 잡을 때",options:[{text:"약속 먼저, 암장은 일정 비면",value:0},{text:"상황 봐서 결정",value:1},{text:"암장 중심으로 약속 조정",value:2},{text:"암장 먼저, 약속은 클밍 쉬어야 할 때",value:3}]},
+{id:"L03",type:"single",axis:"life",text:"연차/자휴 때리고 클밍 간 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
+{id:"L04",type:"single",axis:"life",text:"쉬려고 맘 먹었다가 못 참고 암장 간 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
+{id:"L05",type:"single",axis:"life",text:"클밍 잘하려고 트레이닝/다른 운동/식단 해본 적",options:[{text:"없다",value:0},{text:"있다",value:1}]},
+{id:"L06",type:"single",axis:"life",text:"연휴가 다가오면",options:[{text:"여행/휴식 위주",value:0},{text:"하루쯤 암장 갈까 싶음",value:1},{text:"클밍 언제 어디 갈지 계획함",value:2},{text:"연휴 == 암장 몰아가기 타임",value:3}]},
 
-// {id:"G01",type:"single",axis:"growth",text:"새로운 무브(토모아, 활어 등) 접했을 때",options:[{text:"어려워 보이면 안 한다",value:0},{text:"한두 번 시도 해봄",value:1},{text:"익숙해질 때까지 도전",value:2},{text:"해당 문제 볼 때마다 눈 돌아감",value:3}]},
-// {id:"G02",type:"single",axis:"growth",text:"존버 완등 성공! 동작이 좀 지저분하다면?",options:[{text:"여튼 완등했으면 됨",value:0},{text:"찝찝하지만 완등했으니까...",value:1},{text:"다시 한다",value:2},{text:"깔끔하게 풀릴 때까지 다시",value:3}]},
-// {id:"G03",type:"single",axis:"growth",text:"클라이밍 때문에 감정적으로 흔들린 적",options:[{text:"없다",value:0},{text:"아쉬워서 짜증 난 정도",value:1},{text:"가끔 분노가 치밀어 오른다",value:2},{text:"진짜로 울거나 멘탈 터진 적 있음",value:3}]},
-// {id:"G04",type:"single",axis:"growth",text:"“요즘 실력 늘었다”는 말 들으면",options:[{text:"기분 좋다",value:0},{text:"뿌듯하다",value:1},{text:"부족한 부분이 떠오른다",value:2},{text:"아직 만족할 수 없다",value:3}]},
+{id:"G01",type:"single",axis:"growth",text:"새로운 무브(토모아, 활어 등) 접했을 때",options:[{text:"어려워 보이면 안 한다",value:0},{text:"한두 번 시도 해봄",value:1},{text:"익숙해질 때까지 도전",value:2},{text:"해당 문제 볼 때마다 눈 돌아감",value:3}]},
+{id:"G02",type:"single",axis:"growth",text:"존버 완등 성공! 동작이 좀 지저분하다면?",options:[{text:"여튼 완등했으면 됨",value:0},{text:"찝찝하지만 완등했으니까...",value:1},{text:"다시 한다",value:2},{text:"깔끔하게 풀릴 때까지 다시",value:3}]},
+{id:"G03",type:"single",axis:"growth",text:"클라이밍 때문에 감정적으로 흔들린 적",options:[{text:"없다",value:0},{text:"아쉬워서 짜증 난 정도",value:1},{text:"가끔 분노가 치밀어 오른다",value:2},{text:"진짜로 울거나 멘탈 터진 적 있음",value:3}]},
+{id:"G04",type:"single",axis:"growth",text:"“요즘 실력 늘었다”는 말 들으면",options:[{text:"기분 좋다",value:0},{text:"뿌듯하다",value:1},{text:"부족한 부분이 떠오른다",value:2},{text:"아직 만족할 수 없다",value:3}]},
 
-// {id:"P01",type:"single",axis:"pain",text:"깁스하고 클밍한 적",options:[{text:"있다",value:1},{text:"없다",value:0}]},
-// {id:"P02",type:"single",axis:"pain",text:"클밍 중 피멍/쓸림 발생 시",options:[{text:"그만할까...",value:0},{text:"약 바르고 안 아프면 다시 ㄱㄱ",value:1},{text:"안 죽어~ 시간 없다 빨리 붙자...",value:2},{text:"다음 날 발견/남이 말해줘서 앎",value:3}]},
-// {id:"P03",type:"single",axis:"pain",text:"클밍 안하는 사람들이 손/팔 보고 안타까워한 적",options:[{text:"있다",value:1},{text:"없다",value:0}]},
-// {id:"P04",type:"single",axis:"pain",text:'"좀 쉬어라" 들어본 적',options:[{text:"있다",value:1},{text:"없다",value:0}]},
-// {id:"P05",type:"single",axis:"pain",text:"의사가 클라이밍 쉬라고 하면?",options:[{text:"병원...가본 적 없는데?",value:0},{text:"얼마나 쉬어야 하는지 확인한다",value:1},{text:"의사가 뭘 알아",value:2},{text:"그럴 거 같아서 병원 안 감",value:3}]},
+{id:"P01",type:"single",axis:"pain",text:"깁스하고 클밍한 적",options:[{text:"있다",value:1},{text:"없다",value:0}]},
+{id:"P02",type:"single",axis:"pain",text:"클밍 중 피멍/쓸림 발생 시",options:[{text:"그만할까...",value:0},{text:"약 바르고 안 아프면 다시 ㄱㄱ",value:1},{text:"안 죽어~ 시간 없다 빨리 붙자...",value:2},{text:"다음 날 발견/남이 말해줘서 앎",value:3}]},
+{id:"P03",type:"single",axis:"pain",text:"클밍 안하는 사람들이 손/팔 보고 안타까워한 적",options:[{text:"있다",value:1},{text:"없다",value:0}]},
+{id:"P04",type:"single",axis:"pain",text:'"좀 쉬어라" 들어본 적',options:[{text:"있다",value:1},{text:"없다",value:0}]},
+{id:"P05",type:"single",axis:"pain",text:"의사가 클라이밍 쉬라고 하면?",options:[{text:"병원...가본 적 없는데?",value:0},{text:"얼마나 쉬어야 하는지 확인한다",value:1},{text:"의사가 뭘 알아",value:2},{text:"그럴 거 같아서 병원 안 감",value:3}]},
 {id:"P06",type:"single",axis:"pain",text:"마감 전 나가는 이유",options:[{text:"일찍 와서..?",value:0},{text:"할 거 다 해서",value:1},{text:"더 이상 저그 잡을 힘도 없어서",value:2},{text:"마감 전에 어딜 나가",value:3}]}
 ];
 
@@ -113,16 +113,16 @@ const axisMetaByLevel={
 };
 
 const axisDescByLevel={
-  action:[["가끔 생각날 때만 감","몸은 소중히 챙김"],["주 2~3회는 기본","루틴 만들 줄 앎"],["암장에 출근 도장 찍음","일정이 클밍 중심"],["암장이 집보다 익숙함","쉬는 날? 그게 뭐임"]],
-  mental:[["현생이 더 큼","클밍은 필요할 때만"],["일상에서 그립 잔상 옴","벽 보면 손이 먼저 감"],["뇌가 계속 무브 굴림","쓸데없이 밸런스 체크함"],["벽이랑 대화함","손이 홀드를 찾음(무의식)"]],
+  action:[["가끔 생각날 때만 감","클밍 갈 때 의지 필요"],["좋아하는 암장 있음","삶에 클밍이 슬금슬금..."],["습관처럼 암장 도착","일상이 클라이밍"],["피곤해도 바빠도 클밍? 일단 감","쉬는 날? 그게 뭐임"]],
+  mental:[["암장 벗어나면 클밍 OUT","암장 못 가는 걸로 스트레스? 굳이?"],["문득문득 클밍 생각 스침","재밌어 보이는 문제 있으면 가보고 싶음"],["뿌무/존버/못 푼 문제 머리속에 둥둥 떠다님","안경에 묻은 지문처럼 눈에 계속 밟힘"],["벽을 향한 지독한 짝사랑 중","금단 현상 있음"]],
   life:[["약속이 1순위","클밍은 빈 시간에"],["일정에 클밍 한 칸 넣음","주변 암장 지도 저장함"],["약속을 클밍에 맞춤","연휴=암장 타임"],["생활이 재편성됨","여행도 암장 포함 패키지"]],
   growth:[["즐겜 마인드","완등하면 기분 좋음"],["잘하고 싶어서 슬금슬금 공부","무브 시도는 해봄"],["깔끔병 발동","피드백/분석 자동으로 함"],["눈 돌아감","만족이란 단어를 모름"]],
   pain:[["아프면 쉼","회복을 우선함"],["테이핑/관리하며 탐","무리까진 안 함"],["아픈데도 일단 한 판 더","내일의 나에게 미룸"],["몸 갈아서라도 함","병원은 ‘최후의 선택’"]]
 };
 
 const axisMainLineByLevel={
-  action:["느긋한 방문러","루틴 적응 중","암장 중심 생활","암장 거주 의심"],
-  mental:["현생 우선형","잔상형","점유형","뇌내완등자"],
+  action:["클밍 함 갈까~","이번 주엔 언제 가지","가서 스트레칭이라도 할까...","응~ 나 클밍 중이지~"],
+  mental:["클밍은 클밍, 일상은 일상","취미? 클라이밍!","클밍이!하고!싶!다!","돌...이...만지고 싶다"],
   life:["취미형","개입형","침식형","생활재편성"],
   growth:["즐겜러","성장 갈망러","집착 광공","벽과 계약함"],
   pain:["자기보호형","관리형","무시형","연소형"]
