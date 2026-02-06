@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}button{font:inherit}img{max-width:100%;disp
 .result-type{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em}
 .result-hash{margin:2px 0 0;font-size:12px;color:var(--muted);line-height:1.55;word-break:break-word}
 .result-tags-col{display:grid;gap:8px;align-content:center;justify-items:stretch}
-.tag{display:inline-flex;align-items:center;justify-content:center;padding:4px 4px;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow2);font-size:16px;font-weight:700;letter-spacing:-.01em;text-align:center;transform:rotate(-.4deg);white-space:nowrap}
+.tag{display:inline-flex;align-items:center;justify-content:center;padding:4px 4px;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow2);font-size:16px;font-weight:700;letter-spacing:-.01em;text-align:center;line-height:1.6;transform:rotate(-.4deg);white-space:nowrap}
 .tag:nth-child(2n){transform:rotate(.4deg)}.tag:nth-child(3n){transform:rotate(-.2deg)}
 .result-desc{text-align:center;margin-top: 23px;margin-bottom:23px}
 #resultDescSub{margin-top: 12px;color:var(--muted);font-size:12.5px;line-height:1.6}
@@ -58,12 +58,12 @@ a{color:inherit;text-decoration:none}button{font:inherit}img{max-width:100%;disp
   .result-row.top{grid-template-columns:160px 1fr;gap:12px}
   .result-row.mid{grid-template-columns:250px 1fr;gap:12px}
   #radarChart{width:250px!important;height:250px!important}
-  .tag{padding:8px 10px;font-size:12.5px}
+  .tag{padding:2px 10px;font-size:12.5px}
 }
 @media (max-width:420px){
   .result-row.mid{grid-template-columns:235px 1fr}
   #radarChart{width:235px!important;height:235px!important}
-  .tag{padding:8px 9px;font-size:12px}
+  .tag{padding:2px 9px;font-size:12px}
   .btn{padding:10px 12px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
