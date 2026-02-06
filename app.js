@@ -173,15 +173,15 @@ function renderRadar(data){
 const resultImgEl = $("resultImg");
 
 function imgByPercent(pct){
-  if(pct<10) return "./assets/type_01.png";
-  if(pct<20) return "./assets/type_02.png";
-  if(pct<30) return "./assets/type_03.png";
-  if(pct<50) return "./assets/type_04.png";
-  if(pct<70) return "./assets/type_05.png";
-  if(pct<80) return "./assets/type_06.png";
-  if(pct<90) return "./assets/type_07.png";
-  if(pct<97) return "./assets/type_08.png";
-  return "./assets/type_09.png";
+  if(pct<10) return "./assets/type_01.jpg";
+  if(pct<20) return "./assets/type_02.jpg";
+  if(pct<30) return "./assets/type_03.jpg";
+  if(pct<50) return "./assets/type_04.jpg";
+  if(pct<70) return "./assets/type_05.jpg";
+  if(pct<80) return "./assets/type_06.jpg";
+  if(pct<90) return "./assets/type_07.jpg";
+  if(pct<97) return "./assets/type_08.jpg";
+  return "./assets/type_09.jpg";
 }
 function renderResult(){
   const pct=overallPercent();
